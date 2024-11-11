@@ -1,5 +1,7 @@
 # Reaux_Python_Portfolio
-This is my final python portfolio full of coding that I learned throughout the fall quarter in Bisc 450C
+I am Ruthanne Reaux, a current Biology major about to graduate in the winter '25 with hopes of becoming a medical illustrator in the future! This was my first time ever learning how to code python, and I thoroughly enjoyed it. It was intimidating at first, but I got the hang of it! Much thanks to Dr. Vandenbrink for making this class so easy to learn and pickup on.
+
+Below is my final python portfolio full of coding that I learned throughout the fall quarter in Bisc 450C. Enjoy!
 
 ## Analyzing Patient Data
 
