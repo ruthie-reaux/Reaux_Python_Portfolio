@@ -6,7 +6,7 @@ Below is my final python portfolio full of coding that I learned throughout the 
 
 
 
-## Using Jupyter Notebooks (Part 2)
+## Using Jupyter Notebooks (Part 1 & 2)
 In this exercise, I learned how to use basic functions of Jupyter Notebooks by analyzing data from Fortune 500 Companies.
 
 ```python
