@@ -3,6 +3,504 @@ I am Ruthanne Reaux, a current Biology major about to graduate in the winter '25
 
 Below is my final python portfolio full of coding that I learned throughout the fall quarter in Bisc 450C. Enjoy!
 
+
+
+
+## Using Jupyter Notebooks (Part 2)
+In this exercise, I learned how to use basic functions of Jupyter Notebooks by analyzing data from Fortune 500 Companies.
+
+```python
+%matplotlib inline
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style = "darkgrid") 
+```
+
+
+```python
+df = pd.read_csv('/home/student/Desktop/classroom/myfiles/notebooks/fortune500.csv') 
+```
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Rank</th>
+      <th>Company</th>
+      <th>Revenue (in millions)</th>
+      <th>Profit (in millions)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1955</td>
+      <td>1</td>
+      <td>General Motors</td>
+      <td>9823.5</td>
+      <td>806</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1955</td>
+      <td>2</td>
+      <td>Exxon Mobil</td>
+      <td>5661.4</td>
+      <td>584.8</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1955</td>
+      <td>3</td>
+      <td>U.S. Steel</td>
+      <td>3250.4</td>
+      <td>195.4</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1955</td>
+      <td>4</td>
+      <td>General Electric</td>
+      <td>2959.1</td>
+      <td>212.6</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>1955</td>
+      <td>5</td>
+      <td>Esmark</td>
+      <td>2510.8</td>
+      <td>19.1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+df.tail()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Rank</th>
+      <th>Company</th>
+      <th>Revenue (in millions)</th>
+      <th>Profit (in millions)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25495</td>
+      <td>2005</td>
+      <td>496</td>
+      <td>Wm. Wrigley Jr.</td>
+      <td>3648.6</td>
+      <td>493</td>
+    </tr>
+    <tr>
+      <td>25496</td>
+      <td>2005</td>
+      <td>497</td>
+      <td>Peabody Energy</td>
+      <td>3631.6</td>
+      <td>175.4</td>
+    </tr>
+    <tr>
+      <td>25497</td>
+      <td>2005</td>
+      <td>498</td>
+      <td>Wendy's International</td>
+      <td>3630.4</td>
+      <td>57.8</td>
+    </tr>
+    <tr>
+      <td>25498</td>
+      <td>2005</td>
+      <td>499</td>
+      <td>Kindred Healthcare</td>
+      <td>3616.6</td>
+      <td>70.6</td>
+    </tr>
+    <tr>
+      <td>25499</td>
+      <td>2005</td>
+      <td>500</td>
+      <td>Cincinnati Financial</td>
+      <td>3614.0</td>
+      <td>584</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
+```
+
+
+```python
+df.head ()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>rank</th>
+      <th>company</th>
+      <th>revenue</th>
+      <th>profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1955</td>
+      <td>1</td>
+      <td>General Motors</td>
+      <td>9823.5</td>
+      <td>806</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1955</td>
+      <td>2</td>
+      <td>Exxon Mobil</td>
+      <td>5661.4</td>
+      <td>584.8</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1955</td>
+      <td>3</td>
+      <td>U.S. Steel</td>
+      <td>3250.4</td>
+      <td>195.4</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1955</td>
+      <td>4</td>
+      <td>General Electric</td>
+      <td>2959.1</td>
+      <td>212.6</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>1955</td>
+      <td>5</td>
+      <td>Esmark</td>
+      <td>2510.8</td>
+      <td>19.1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+len(df)
+```
+
+
+
+
+    25500
+
+
+
+
+```python
+df.dtypes
+```
+
+
+
+
+    year         int64
+    rank         int64
+    company     object
+    revenue    float64
+    profit      object
+    dtype: object
+
+
+
+
+```python
+non_numeric_profits = df.profit.str.contains('[^0-9.-]')
+df.loc[non_numeric_profits].head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>rank</th>
+      <th>company</th>
+      <th>revenue</th>
+      <th>profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>228</td>
+      <td>1955</td>
+      <td>229</td>
+      <td>Norton</td>
+      <td>135.0</td>
+      <td>N.A.</td>
+    </tr>
+    <tr>
+      <td>290</td>
+      <td>1955</td>
+      <td>291</td>
+      <td>Schlitz Brewing</td>
+      <td>100.0</td>
+      <td>N.A.</td>
+    </tr>
+    <tr>
+      <td>294</td>
+      <td>1955</td>
+      <td>295</td>
+      <td>Pacific Vegetable Oil</td>
+      <td>97.9</td>
+      <td>N.A.</td>
+    </tr>
+    <tr>
+      <td>296</td>
+      <td>1955</td>
+      <td>297</td>
+      <td>Liebmann Breweries</td>
+      <td>96.0</td>
+      <td>N.A.</td>
+    </tr>
+    <tr>
+      <td>352</td>
+      <td>1955</td>
+      <td>353</td>
+      <td>Minneapolis-Moline</td>
+      <td>77.4</td>
+      <td>N.A.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+set(df.profit[non_numeric_profits])
+```
+
+
+
+
+    {'N.A.'}
+
+
+
+
+```python
+len(df.profit[non_numeric_profits])
+```
+
+
+
+
+    369
+
+
+
+
+```python
+bin_sizes, _, _ = plt.hist(df.year[non_numeric_profits], bins= range(1955, 2006) )
+```
+
+
+![png](output_11_0.png)
+
+
+
+```python
+df = df.loc[~non_numeric_profits]
+df.profit = df.profit.apply(pd.to_numeric)
+```
+
+
+```python
+len(df)
+```
+
+
+
+
+    25131
+
+
+
+
+```python
+df.dtypes
+```
+
+
+
+
+    year         int64
+    rank         int64
+    company     object
+    revenue    float64
+    profit     float64
+    dtype: object
+
+
+
+
+```python
+group_by_year = df.loc[:, ['year', 'revenue', 'profit']].groupby('year')
+avgs = group_by_year.mean()
+x = avgs.index 
+y1 = avgs.profit
+def plot(x, y, ax, title, y_label): 
+    ax.set_title(title)
+    ax.set_ylabel(y_label)
+    ax.plot(x, y)
+    ax.margins(x = 0, y = 0)
+```
+
+
+```python
+fig, ax = plt.subplots()
+plot(x, y1, ax, 'increase in mean Fortune 500 company profits from 1955 to 2005', 'Profit (millions)')
+```
+
+
+![png](output_16_0.png)
+
+
+
+```python
+y2 = avgs.revenue
+fig, ax = plt.subplots()
+plot(x, y2, ax, 'Increase in mean Fortune 500 company revenues from 1955 to 2005', 'Revenue (millions)')
+```
+
+
+![png](output_17_0.png)
+
+
+
+```python
+def plot_with_std(x, y, stds, ax, title, y_label):
+    ax.fill_between(x, y - stds, y + stds, alpha = 0.2)
+    plot(x, y, ax, title, y_label)
+fig, (ax1, ax2) = plt.subplots(ncols= 2)
+title = 'Increase in mean and std fortune 500 company %s from 1955 to 2005'
+stds1 = group_by_year.std().profit.values
+stds2 = group_by_year.std().revenue.values
+plot_with_std(x, y1.values, stds1, ax1, title % 'profits', 'Profit (millions)')
+plot_with_std(x, y2.values, stds2, ax2, title % 'revenues', 'Revenue (millions)')
+fig.set_size_inches(14,4)
+fig.tight_layout()
+```
+
+
+![png](output_18_0.png)
+
+
+
+
+
 ## Python Fundamentals
 In this exercise, we explored various methods of using Python to define and create data for the future.
 
@@ -515,6 +1013,601 @@ print('Omitting ending index:', sond)
     With known last position: ['sept', 'oct', 'nov', 'dec']
     Using len() to get last entry: ['sept', 'oct', 'nov', 'dec']
     Omitting ending index: ['sept', 'oct', 'nov', 'dec']
+
+
+## Using Loops
+We explored the functionalility of creating loops for future use in programming.
+
+```python
+odds = [1,3,5,7]
+```
+
+
+```python
+print(odds[0])
+print(odds[1])
+print(odds[2])
+print(odds[3])
+```
+
+    1
+    3
+    5
+    7
+
+
+
+```python
+odds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+for num in odds:
+    print(num)
+```
+
+    1
+    3
+    5
+    7
+    9
+    11
+    13
+    15
+    17
+    19
+
+
+
+```python
+length = 0
+names = ['Curie', 'Darwin', 'Turing']
+for value in names:
+    length = length + 1
+print('There are', length, 'names in the list')
+```
+
+    There are 3 names in the list
+
+
+
+```python
+name = "Roadlind"
+for name in ['Curie', 'Darwin', 'Turing']:
+    print(name)
+print('after the loop, name is', name)
+```
+
+    Curie
+    Darwin
+    Turing
+    after the loop, name is Turing
+
+
+
+```python
+print(len([0,1,2,3]))
+```
+
+    4
+
+
+
+```python
+name = ['Curie', 'Darwin', 'Turing']
+
+print(len(name))
+```
+
+    3
+
+
+## Making Choices (Part 1)
+In this exercise, we used Python to make choices based on the presented information, selecting the correct answers to assess patients' health from the data.
+
+```python
+num = 37
+if num > 100:
+    print('greater')
+else:
+    print('not greater')
+print('done')
+```
+
+    not greater
+    done
+
+
+
+```python
+num = 53
+print('before conditional...')
+if num > 100:
+    print(num, 'is greater than 100')
+print('...after conditional')
+```
+
+    before conditional...
+    ...after conditional
+
+
+
+```python
+num = 14
+
+if num > 0:
+    print(num, 'is positive')
+elif num == 0:
+    print(num, 'is zero')
+else:
+    print(num, 'is negative')
+```
+
+    14 is positive
+
+
+
+```python
+if (1 > 0) and (-1 >= 0):
+    print('both parts are true')
+else:
+    print('at least one part is false')
+```
+
+    at least one part is false
+
+
+
+```python
+if (-1 > 0) or (-1 >= 0):
+    print('at least one part is true')
+else:
+    print('both of these are false')
+```
+
+    both of these are false
+
+
+
+```python
+import numpy
+```
+
+## Functions (Part 1)
+```python
+fahrenheit_val = 99 
+celsius_val = ((fahrenheit_val - 32) *(5/9))
+
+print(celsius_val)
+```
+
+    37.22222222222222
+
+
+
+```python
+fahrenheit_val2 = 43
+celsius_val2 = ((fahrenheit_val2-32) * (5/9))
+
+print(celsius_val2)
+```
+
+    6.111111111111112
+
+
+
+```python
+def explicit_fahr_to_celsius(temp):
+    # Assign the converted value to a variable
+    converted = ((temp - 32) * (5/9))
+    # Return the values of the new variable
+    return converted
+```
+
+
+```python
+def fahr_to_celsius(temp):
+    # Return converted values more efficiently using the return function without creating 
+    # a new variable. This code does the same thing as the previous function but it is more
+    # explicit in explaining how the return command works.
+    return ((temp - 32) * (5/9))
+```
+
+
+```python
+fahr_to_celsius(32)
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+explicit_fahr_to_celsius(32)
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+print('Freezing point of water:', fahr_to_celsius(32), 'C')
+print('Boiling point of water:', fahr_to_celsius(212), 'C')
+```
+
+    Freezing point of water: 0.0 C
+    Boiling point of water: 100.0 C
+
+
+
+```python
+def celsius_to_kelvin(temp_c):
+    return temp_c + 273.15
+print('Freeing point of water in Kelvin:', celsius_to_kelvin(0.))
+```
+
+    Freeing point of water in Kelvin: 273.15
+
+
+
+```python
+def fahr_to_kelvin(temp_f):
+    temp_c = fahr_to_celsius(temp_f)
+    temp_k = celsius_to_kelvin(temp_c)
+    return temp_k
+
+print('boiling point of water in Kelvin:', fahr_to_kelvin(212.0))
+```
+
+    boiling point of water in Kelvin: 373.15
+
+
+
+```python
+print('Again, temperature in Kelvin was:', temp_k)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-15-eed2471d229b> in <module>
+    ----> 1 print('Again, temperature in Kelvin was:', temp_k)
+    
+
+    NameError: name 'temp_k' is not defined
+
+
+
+```python
+temp_kelvin = fahr_to_kelvin(212.0)
+print('Temperature in Kelvin was:', temp_kelving)
+```
+
+    Temperature in Kelvin was: 373.15
+
+
+
+```python
+temp_kelvin
+```
+
+
+
+
+    373.15
+
+
+
+
+```python
+def print_temperatures():
+    print('Temperature in Fahrenheit was:', temp_fahr)
+    print('Temperature in Kelvin was:', temp_kelvin)
+    
+temp_fahr = 212.0
+temp_kelvin = fahr_to_kelvin(temp_fahr)
+
+print_temperatures()
+```
+
+    Temperature in Fahrenheit was: 212.0
+    Temperature in Kelvin was: 373.15
+
+
+## Defensive Programming
+In this exercise, we learned to program with precision to prevent errors. Any mistakes we made were quickly caught by Python, making them easy to understand and correct.
+
+```python
+numbers = [1.5, 2.3, 0.7, -0.001, 4.4]
+total = 0.0
+for num in numbers:
+    assert num > 0.0, 'Data should only contain positive values'
+    total += num
+print('total is:', total)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-2-13c7d5640ddd> in <module>
+          2 total = 0.0
+          3 for num in numbers:
+    ----> 4     assert num > 0.0, 'Data should only contain positive values'
+          5     total += num
+          6 print('total is:', total)
+
+
+    AssertionError: Data should only contain positive values
+
+
+
+```python
+def normalize_rectangle(rect):
+    """Normalize a rectangle so that it is at the origin adn 1.0 units long on its longest axis.
+    input should be of the format (x0, y-, x1, x2).
+    (x0, y0) and (x1, y1) define the lower left and upper right corners of the rectangle respectively"""
+    assert len(rect) == 4, 'rectangles must contain 4 coordinates'
+    x0, y0, x1, y1 = rect
+    assert x0 < x1, 'Invalid x coordinates'
+    assert y0 < y1, 'Invalid y coordinates'
+    
+    dx = x1 - x0
+    dy = y1 - y0
+    if dx > dy:
+        scaled = dy / dx
+        upper_x, upper_y = 1.0, scaled 
+    else:
+        scaled = dx / dy
+        upper_x, upper_y = scaled, 1.0
+        
+    assert 0 < upper_x <= 1.0, 'Calculated upper x coordinate invalid'
+    assert 0 < upper_y <= 1.0, 'Calculated upper y coordinate invalid'
+
+    return (0, 0, upper_x, upper_y)
+```
+
+
+```python
+print(normalize_rectangle((0.0, 1.0, 2.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-8-a81b6ed7619a> in <module>
+    ----> 1 print(normalize_rectangle((0.0, 1.0, 2.0)))
+    
+
+    <ipython-input-7-1a181218324b> in normalize_rectangle(rect)
+          3     input should be of the format (x0, y-, x1, x2).
+          4     (x0, y0) and (x1, y1) define the lower left and upper right corners of the rectangle respectively"""
+    ----> 5     assert len(rect) == 4, 'rectangles must contain 4 coordinates'
+          6     x0, y0, x1, y1 = rect
+          7     assert x0 < x1, 'Invalid x coordinates'
+
+
+    AssertionError: rectangles must contain 4 coordinates
+
+
+
+```python
+print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-9-5e28a32bada1> in <module>
+    ----> 1 print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+    
+
+    <ipython-input-7-1a181218324b> in normalize_rectangle(rect)
+          5     assert len(rect) == 4, 'rectangles must contain 4 coordinates'
+          6     x0, y0, x1, y1 = rect
+    ----> 7     assert x0 < x1, 'Invalid x coordinates'
+          8     assert y0 < y1, 'Invalid y coordinates'
+          9 
+
+
+    AssertionError: Invalid x coordinates
+
+
+
+```python
+print(normalize_rectangle((0.0, 0.0, 1.0, 5.0)))
+```
+
+    (0, 0, 0.2, 1.0)
+
+
+
+```python
+print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-11-1337bef8f4bf> in <module>
+    ----> 1 print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+    
+
+    <ipython-input-7-1a181218324b> in normalize_rectangle(rect)
+         18 
+         19     assert 0 < upper_x <= 1.0, 'Calculated upper x coordinate invalid'
+    ---> 20     assert 0 < upper_y <= 1.0, 'Calculated upper y coordinate invalid'
+         21 
+         22     return (0, 0, upper_x, upper_y)
+
+
+    AssertionError: Calculated upper y coordinate invalid
+
+## Transcribing DNA into RNA
+
+```python
+# Prompt user to enter the input fasta file name
+
+input_file_name = input("Enter the name of the input fasta file: ")
+```
+
+    Enter the name of the input fasta file:  MSTN_gene.txt
+
+
+
+```python
+# Open the input fasta file and read the DNA sequence
+with open(input_file_name, "r") as input_file:
+    dna_sequence = ''
+    for line in input_file: 
+        if line.startswith(">"): 
+            continue
+        dna_sequence += line.strip()
+```
+
+
+```python
+# Transcribe the DNA to RNA
+rna_sequence = ''
+for nucleotide in dna_sequence:
+    if nucleotide == "T":
+        rna_sequence += "U"
+    else:
+        rna_sequence += nucleotide
+```
+
+
+```python
+# Prompt the user to enter the output file name
+
+output_file_name = input("Enter the name of the output file: ")
+```
+
+    Enter the name of the output file:  Ubiquitin.txt
+
+
+
+```python
+# Save the RNA sequence to a text file
+
+with open(output_file_name, "w") as output_file:
+    output_file.write(rna_sequence)
+    print("The RNA sequence has been saved to (output_file_name)")
+```
+
+    The RNA sequence has been saved to (output_file_name)
+
+
+
+```python
+print(rna_sequence)
+```
+
+    AUGAUGCAAAAACUGCAAAUGUAUGUUUAUAUUUACCUGUUCAUGCUGAUUGCUGCUGGCCCAGUGGAUCUAAAUGAGGGCAGUGAGAGAGAAGAAAAUGUGGAAAAAGAGGGGCUGUGUAAUGCAUGUGCGUGGAGACAAAACACGAGGUACUCCAGAAUAGAAGCCAUAAAAAUUCAAAUCCUCAGUAAGCUGCGCCUGGAAACAGCUCCUAACAUCAGCAAAGAUGCUAUAAGACAACUUCUGCCAAGAGCGCCUCCACUCCGGGAACUGAUCGAUCAGUACGACGUCCAGAGGGAUGACAGCAGUGAUGGCUCUUUGGAAGAUGACGAUUAUCACGCUACCACGGAAACAAUCAUUACCAUGCCUACAGAGUCUGACUUUCUAAUGCAAGCGGAUGGCAAGCCCAAAUGUUGCUUUUUUAAAUUUAGCUCUAAAAUACAGUACAACAAAGUAGUAAAAGCCCAACUGUGGAUAUAUCUCAGACCCGUCAAGACUCCUACAACAGUGUUUGUGCAAAUCCUGAGACUCAUCAAACCCAUGAAAGACGGUACAAGGUAUACUGGAAUCCGAUCUCUGAAACUUGACAUGAGCCCAGGCACUGGUAUUUGGCAGAGUAUUGAUGUGAAGACAGUGUUGCAAAAUUGGCUCAAACAGCCUGAAUCCAACUUAGGCAUUGAAAUCAAAGCUUUGGAUGAGAAUGGCCAUGAUCUUGCUGUAACCUUCCCAGGACCAGGAGAAGAUGGGCUGAAUCCCUUUUUAGAAGUCAAGGUGACAGACACACCCAAGAGGUCCCGGAGAGACUUUGGGCUUGACUGCGAUGAGCACUCCACGGAAUCCCGGUGCUGCCGCUACCCCCUCACGGUCGAUUUUGAAGCCUUUGGAUGGGACUGGAUUAUCGCACCCAAAAGAUAUAAGGCCAAUUACUGCUCAGGAGAGUGUGAAUUUGUGUUUUUACAAAAAUAUCCGCAUACUCAUCUUGUGCACCAAGCAAACCCCAGAGGCUCAGCAGGCCCUUGCUGCACUCCGACAAAAAUGUCUCCCAUUAAUAUGCUAUAUUUUAAUGGCAAAGAACAAAUAAUAUAUGGGAAAAUUCCAGCCAUGGUAGUAGACCGCUGUGGGUGCUCAUGA
+
+
+## Translating RNA to Protein
+
+```python
+# Prompt the user to enter the input RNA file name
+
+input_file_name = input("Enter the name of the Input RNA file: ")
+```
+
+    Enter the name of the Input RNA file:  Ubiquitin.txt
+
+
+
+```python
+# Open the input RNA file and read the mRNA sequence
+
+with open(input_file_name, "r") as input_file:
+    rna_sequence = input_file.read().strip()
+```
+
+
+```python
+# Define the codon table
+
+codon_table = {
+
+"UUU": "F", "UUC": "F", "UUA": "L", "UUG": "L",
+"CUU": "L", "CUC": "L", "CUA": "L", "CUG": "L",
+"AUU": "I", "AUC": "I", "AUA": "I", "AUG": "M",
+"GUU": "V", "GUC": "V", "GUA": "V", "GUG": "V",
+"UCU": "S", "UCC": "S", "UCA": "S", "UCG": "S",
+"CCU": "P", "CCC": "P", "CCA": "P", "CCG": "P",
+"ACU": "T", "ACC": "T", "ACA": "T", "ACG": "T",
+"GCU": "A", "GCC": "A", "GCA": "A", "GCG": "A",
+"UAU": "Y", "UAC": "Y", "UAA": "*", "UAG": "*",
+"CAU": "H", "CAC": "H", "CAA": "Q", "CAG": "Q",
+"AAU": "N", "AAC": "N", "AAA": "K", "AAG": "K",
+"GAU": "D", "GAC": "D", "GAA": "E", "GAG": "Е",
+"UGU": "C", "UGC": "C", "UGA": "*", "UGG": "W",
+"CGU": "R", "CGC": "R", "CGA": "R", "CGG": "R",
+"AGU": "S", "AGC": "S", "AGA": "R", "AGG": "R",
+"GGU": "G", "GGC": "G", "GGA": "G", "GGG": "G"
+    
+}
+```
+
+
+```python
+# Translate RNA to protein
+
+protein_sequence = " "
+for i in range(0, len(rna_sequence), 3):
+    codon = rna_sequence[i:i+3]
+    if len(codon) == 3:
+        amino_acid = codon_table[codon]
+        if amino_acid == "*":
+            break
+        protein_sequence += amino_acid
+```
+
+
+```python
+# Prompt the user to enter the output file name
+
+output_file_name = input("Enter the name of the output file: ")
+```
+
+    Enter the name of the output file:  Ubiquitin_Protein.txt
+
+
+
+```python
+# Save the protein sequence to a text file
+
+with open(output_file_name, "w") as output_file:
+    output_file.write(protein_sequence)
+    print(f"The protein sequence has been saved to {output_file_name}")
+```
+
+    The protein sequence has been saved to Ubiquitin_Protein.txt
+
+
+
+```python
+print(protein_sequence)
+```
+
+     MMQKLQMYVYIYLFMLIAAGPVDLNЕGSЕREENVEKЕGLCNACAWRQNTRYSRIEAIKIQILSKLRLETAPNISKDAIRQLLPRAPPLRELIDQYDVQRDDSSDGSLEDDDYHATTETIITMPTЕSDFLMQADGKPKCCFFKFSSKIQYNKVVKAQLWIYLRPVKTPTTVFVQILRLIKPMKDGTRYTGIRSLKLDMSPGTGIWQSIDVKTVLQNWLKQPESNLGIEIKALDЕNGHDLAVTFPGPGEDGLNPFLEVKVTDTPKRSRRDFGLDCDЕHSTESRCCRYPLTVDFEAFGWDWIIAPKRYKANYCSGЕCEFVFLQKYPHTHLVHQANPRGSAGPCCTPTKMSPINMLYFNGKEQIIYGKIPAMVVDRCGCS
 
 
 
